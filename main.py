@@ -1,5 +1,6 @@
 def main():
-    with open("books/frankenstein.txt") as f:
+    path = "books/frankenstein.txt"
+    with open(path) as f:
         file_contents = f.read()
         # print(file_contents)
 
@@ -20,11 +21,21 @@ def main():
                 else:
                     letter_count[letter] = 1
         # sorted(myDict, key=myDict.get, reverse=True)
-        final_sorted = sorted(letter_count.items(), key=lambda item: item[1], reverse=True)
-        print(final_sorted)
-        # ^ it returns a list
-    char_count(file_contents)
+        final_list = sorted(letter_count.items(), key=lambda item: item[1], reverse=True)
+        return final_list
+        print(f"I am in char count {final_list}")
+        # ^ it returns a list, but now its returning twice
+    # print(f" I am calling the function{char_count(file_contents)}")
 
+    the_freaking_list = char_count(file_contents)
+        
+
+
+    def report_printer(a_path,a_list):
+        print(a_path)
+        print(a_list)
+    
+    report_printer(path, the_freaking_list)
     
 
 
